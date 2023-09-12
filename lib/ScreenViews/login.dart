@@ -23,6 +23,7 @@ class _LoginState extends State<LogIn> {
   ModulosData modulosData = ModulosData();
 
   Future<void> _verificarUsuario() async {
+    
     final response = await modulosData.fetchData('usuarios/usuarios');
 
     if (response.containsKey('usuario')) {

@@ -118,28 +118,7 @@ class _RegistarUState extends State<RegistarU> {
                         labelText: 'Teléfono'),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: InputsFormS(
-                        obscureText: false,
-                        hintext: 'Ingrese su Contraseña',
-                        labelText: 'Nombre',
-                        controller: _contrasena),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: InputsFormS(
-                        obscureText: false,
-                        hintext: 'Ingrese su Nombre',
-                        labelText: 'Nombre',
-                        controller: _contrasenaC),
-                  ),
-                ),
+               
                 const SizedBox(height: 20),
                 Padding(
                   padding: AppTheme.selectPading,
