@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:apptower/ScreenViews/registarU.dart';
+import 'package:apptower/ScreenViews/registrarU.dart';
 import 'package:flutter/material.dart';
 import 'package:apptower/ScreenViews/inicio.dart';
 import 'package:apptower/themes/theme.dart';

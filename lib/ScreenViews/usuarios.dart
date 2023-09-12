@@ -1,4 +1,4 @@
-import 'package:apptower/ScreenViews/registarU.dart';
+import 'package:apptower/ScreenViews/registrarU.dart';
 import 'package:apptower/widgets/usuarios/RegistrarUsuarioVista.dart';
 import 'package:flutter/material.dart';
 import 'package:apptower/Models/Data.dart';
