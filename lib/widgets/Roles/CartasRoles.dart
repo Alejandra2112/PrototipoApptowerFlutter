@@ -27,10 +27,14 @@ class _CartasRolesState extends State<CartasRoles> {
         return Card(
             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
             child: ListTile(
               leading: Icon(Icons.settings), 
-              title: Text('${roles['nombreRol']}'),
+              title: Text('${roles['nombreRol']}',
+               style: TextStyle(
+          color: Colors.black87,
+          fontWeight: FontWeight.bold, 
+        ),),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

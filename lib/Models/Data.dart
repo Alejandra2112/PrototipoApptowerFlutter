@@ -4,21 +4,21 @@ import 'dart:convert';
 class ModulosData {
   final String baseUrl = 'https://backnodejs.onrender.com/api/';
 
-  Future<Map<String, dynamic>> fetchData(String endpoint) async {
-    final response = await http.get(Uri.parse('$baseUrl$endpoint'));
-    print('$baseUrl$endpoint');
+  Future<Map<String, dynamic>> fetchData(String clave) async {
+    final response = await http.get(Uri.parse('$baseUrl$clave'));
+    print('$baseUrl$clave');
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
-      // Manejo de errores más detallado
+      
      
       throw Exception('Failed to load data');
     }
   }
 
-  Future<void> agregarRegistro(Map<String, dynamic> nuevoRegistro, String endpoint) async {
+  Future<void> agregarRegistro(Map<String, dynamic> nuevoRegistro, String clave) async {
     final response = await http.post(
-      Uri.parse(baseUrl+endpoint),
+      Uri.parse(baseUrl+clave),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -33,9 +33,9 @@ class ModulosData {
     }
   }
 
-  Future<void> actualizarRegistro(Map<String, dynamic> actualizacion, String endpoint) async {
+  Future<void> actualizarRegistro(Map<String, dynamic> actualizacion, String clave) async {
     final response = await http.put(
-      Uri.parse(baseUrl+endpoint),
+      Uri.parse(baseUrl+clave),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -50,9 +50,9 @@ class ModulosData {
       throw Exception('Failed to update visitor record');
     }
   }
-  Future<void> eliminarRegistro(Map<String, dynamic> eliminacion, String endpoint) async {
+  Future<void> eliminarRegistro(Map<String, dynamic> eliminacion, String clave) async {
     final response = await http.delete(
-      Uri.parse(baseUrl+endpoint),
+      Uri.parse(baseUrl+clave),
       headers: {
         'Content-Type': 'application/json',
       },

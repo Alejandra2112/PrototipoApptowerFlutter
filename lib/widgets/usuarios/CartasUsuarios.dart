@@ -30,10 +30,16 @@ class _CartasUsuariosState extends State<CartasUsuarios> {
         return Card(
           margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
             child: ListTile(
               leading: Icon(Icons.person),
-              title: Text('${usuario['nombre']} ${usuario['apellido']}'),
+              title: Text(
+                '${usuario['nombre']} ${usuario['apellido']}',
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -78,7 +84,12 @@ class _CartasUsuariosState extends State<CartasUsuarios> {
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: const Text('Cancelar'),
+                                child: const Text(
+                                  'Cancelar',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 5, 0, 34),
+                                  ),
+                                ),
                               ),
                               TextButton(
                                 onPressed: () async {
@@ -97,7 +108,12 @@ class _CartasUsuariosState extends State<CartasUsuarios> {
                                   );
                                   widget.actualizarDatos();
                                 },
-                                child: const Text('Eliminar'),
+                                child: const Text(
+                                  'Eliminar',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 5, 0, 34),
+                                  ),
+                                ),
                               ),
                             ],
                           );

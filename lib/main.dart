@@ -1,8 +1,6 @@
 import 'package:apptower/ScreenViews/inicio.dart';
 import 'package:apptower/ScreenViews/login.dart';
-import 'package:apptower/ScreenViews/roles.dart';
 import 'package:apptower/ScreenViews/usuarios.dart';
-import 'package:apptower/ScreenViews/vigilantes.dart';
 import 'package:apptower/themes/appThemes.dart';
 
 import 'package:flutter/material.dart';
@@ -20,7 +18,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       home: LogIn(),
-      theme: AppTheme.darkTheme,
+      theme: AppTheme.customTheme, 
     );
   }
 }

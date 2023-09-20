@@ -98,15 +98,15 @@ class _RegistrarVigilanteVistaState extends State<RegistrarVigilanteVista> {
                 readOnly: true,
                 onTap: () async {
                   DateTime selectedDate = DateTime.now();
-                  final DateTime? picked = await showDatePicker(
+                  final DateTime? fecha = await showDatePicker(
                     context: context,
                     initialDate: DateTime.now(),
                     firstDate: DateTime(2000),
                     lastDate: DateTime(2101),
                   );
-                  if (picked != null && picked != selectedDate) {
+                  if (fecha != null && fecha != selectedDate) {
                     setState(() {
-                      selectedDate = picked;
+                      selectedDate = fecha;
                       _fechaNacimiento.text =
                           DateFormat('yyyy-MM-dd').format(selectedDate);
                     });
@@ -123,26 +123,7 @@ class _RegistrarVigilanteVistaState extends State<RegistrarVigilanteVista> {
               SizedBox(
                 height: 8,
               ),
-              DropdownButtonFormField<bool>(
-                value: estado,
-                items: Est.map((String est) {
-                  return DropdownMenuItem<bool>(
-                    value: est == 'Activo',
-                    child: Text(est),
-                  );
-                }).toList(),
-                onChanged: (bool? newValue) {
-                  if (newValue != null) {
-                    setState(() {
-                      estado = newValue;
-                    });
-                  }
-                },
-                decoration: const InputDecoration(
-                  labelText: 'Estado',
-                  border: OutlineInputBorder(),
-                ),
-              ),
+             
               SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () async {
@@ -154,7 +135,7 @@ class _RegistrarVigilanteVistaState extends State<RegistrarVigilanteVista> {
                     "correo": _correo.text,
                     "telefono": int.parse(_telefono.text),
                     "fechaNacimiento": _fechaNacimiento.text,
-                    "estado": estado == 'Activo',
+                    "estado": true,
                   };
                   try {
                     await registro.agregarRegistro(

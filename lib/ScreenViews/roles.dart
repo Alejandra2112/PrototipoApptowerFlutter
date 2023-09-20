@@ -31,7 +31,8 @@ class _RolesState extends State<Roles> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Roles')),
+      appBar: AppBar(title: const Text('Roles'),
+      ),
       body: FutureBuilder<List<Map<String, dynamic>>>(
         future: futureData,
         builder: (context, snapshot) {

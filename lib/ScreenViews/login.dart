@@ -72,9 +72,8 @@ class _LoginState extends State<LogIn> {
           children: [
             Container(
                 height: 300,
-                child: Image.network(
-                  "../img/Logo-Apptower.png",
-                )),
+                 child: Image.network(
+                      "https://i.ibb.co/KL47c1Y/Logo-Apptower.png")),
             Padding(
               padding: AppTheme.selectPading,
               child: Column(

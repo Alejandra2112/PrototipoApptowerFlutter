@@ -11,10 +11,12 @@ dependencies:
     sdk: flutter
   http: ^1.1.0
   intl: ^0.18.1
+  path: ^1.8.3
+  path_provider: ^2.1.1
 
 flutter:
   assets:
-    - img/Logo-Apptower.png
+    - img/
   uses-material-design: true
 
 dev_dependencies:

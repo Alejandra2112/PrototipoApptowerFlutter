@@ -36,7 +36,7 @@ class _RegistarUState extends State<RegistarU> {
           Container(
               height: 190,
               child:
-                  Image.network( "../img/Logo-Apptower.png")),
+                  Image.network("https://i.ibb.co/KL47c1Y/Logo-Apptower.png")),
           Padding(
             padding: AppTheme.selectPading,
             child: Column(
@@ -118,7 +118,64 @@ class _RegistarUState extends State<RegistarU> {
                         labelText: 'Teléfono'),
                   ),
                 ),
-               
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
+                  child: TextFormField(
+                    controller: _contrasena,
+                    autofocus: true,
+                    textCapitalization: TextCapitalization.words,
+                    obscureText: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Este campo es requerido';
+                      }
+                      return null;
+                    },
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    decoration: InputDecoration(
+                      labelText: 'Contraseña',
+                      hintText: 'Ingrese su Contraseña',
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
+                  child: TextFormField(
+                    controller: _contrasenaC,
+                    autofocus: true,
+                    textCapitalization: TextCapitalization.words,
+                    obscureText: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Este campo es requerido';
+                      }
+                      return null;
+                    },
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    decoration: InputDecoration(
+                      labelText: 'Confirmar Contraseña',
+                      hintText: 'Ingrese su Contraseña',
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                  ),
+                ),
                 const SizedBox(height: 20),
                 Padding(
                   padding: AppTheme.selectPading,

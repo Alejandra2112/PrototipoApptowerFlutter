@@ -25,14 +25,32 @@ class InputsForm extends StatelessWidget {
         controller: controller,
         autofocus: true,
         obscureText: obscureText,
+              validator: (value) {
+  if (value == null || value.isEmpty) {
+    return 'Este campo es requerido';
+  } else {
+    double? parsedValue = double.tryParse(value);
+    if (parsedValue == null) {
+      return 'Ingrese un valor numérico válido';
+    } else if (parsedValue <= 0) {
+      return 'El valor debe ser mayor que cero';
+    }
+  }
+  return null; 
+},
         autovalidateMode: AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           hintText: hintext,
           labelText: labelText,
           prefixIcon: icon,
-          
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            borderRadius: BorderRadius.circular(5.0),
+          ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5.0), // Puedes ajustar el radio según tus preferencias
+            borderRadius: BorderRadius.circular(5.0),
           ),
         ),
       ),

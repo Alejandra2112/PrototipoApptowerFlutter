@@ -36,7 +36,11 @@ autovalidateMode: AutovalidateMode.onUserInteraction,
           hintText: hintext,
           labelText: labelText,
           prefixIcon: icon,
-          
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.black, // Cambia el color del borde a negro cuando está enfocado
+            )
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5.0), // Puedes ajustar el radio según tus preferencias
           ),

@@ -152,13 +152,17 @@ class _ModalEditarUsuarioState extends State<ModalEditarUsuario> {
       ),
       actions: [
         TextButton(
-          child: const Text('Cancelar'),
+          child: const Text('Cancelar',style: TextStyle(
+      color:  Color.fromARGB(255, 5, 0, 34), 
+    ),),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
         TextButton(
-          child: const Text('Guardar'),
+          child: const Text('Guardar', style: TextStyle(
+      color:  Color.fromARGB(255, 5, 0, 34), 
+    ),),
           onPressed: () async {
             final Map<String, dynamic> nuevousuario = {
               "_id": widget.usuario['_id'],
@@ -169,7 +173,7 @@ class _ModalEditarUsuarioState extends State<ModalEditarUsuario> {
               "correo": _correo.text,
               "telefono": int.parse(_telefono.text),
               "rol": dropdownValue,
-              "estado": estado == 'Activo',
+              "estado": estado,
             };
 
             try {

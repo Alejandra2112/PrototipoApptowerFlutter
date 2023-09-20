@@ -15,7 +15,6 @@ class RegistrarUsuarioVista extends StatefulWidget {
 class _ModalRegistrarUsuariosState extends State<RegistrarUsuarioVista> {
   final registro = ModulosData();
 
-  late String SeleccionTD = 'CC';
   late bool estado = true;
   late String dropdownValue = 'Residente';
   final TextEditingController _documento = TextEditingController();
@@ -27,7 +26,8 @@ class _ModalRegistrarUsuariosState extends State<RegistrarUsuarioVista> {
   final TextEditingController _contrasenaC = TextEditingController();
   List<String> roles = ['Administrador', 'Residente', 'Vigilante'];
 
-  List<String> Td = ['CC', 'CE'];
+  List<String> Td = ['CC', 'CE']; // Valores que puede tener el dropDown
+  late String SeleccionTD = 'CC'; // Valor inicial
   List<String> Est = ['Activo', 'Inactivo'];
 
   @override
@@ -55,8 +55,9 @@ class _ModalRegistrarUsuariosState extends State<RegistrarUsuarioVista> {
                 height: 6,
               ),
               DropdownButtonFormField<String>(
-                value: SeleccionTD,
+                value: SeleccionTD, //Valor inical
                 items: Td.map((String td) {
+                  //Iteracion de la lista de opciones
                   return DropdownMenuItem<String>(
                     value: td,
                     child: Text(td),
@@ -65,7 +66,7 @@ class _ModalRegistrarUsuariosState extends State<RegistrarUsuarioVista> {
                 onChanged: (String? newValue) {
                   if (newValue != null && Td.contains(newValue)) {
                     setState(() {
-                      SeleccionTD = newValue;
+                      SeleccionTD = newValue; //valor final del dropdown
                     });
                   }
                 },
@@ -92,16 +93,62 @@ class _ModalRegistrarUsuariosState extends State<RegistrarUsuarioVista> {
                   obscureText: false,
                   hintext: 'Ingrese su Teléfono',
                   labelText: 'Teléfono'),
-              InputsForm(
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
+                child: TextFormField(
                   controller: _contrasena,
+                  autofocus: true,
+                  textCapitalization: TextCapitalization.words,
                   obscureText: true,
-                  hintext: 'Ingrese su Teléfono',
-                  labelText: 'Contraseña'),
-              InputsForm(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Este campo es requerido';
+                    }
+                    return null;
+                  },
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  decoration: InputDecoration(
+                    labelText: 'Contraseña',
+                    hintText: 'Ingrese su Contraseña',
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.black,
+                      ),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
+                child: TextFormField(
                   controller: _contrasenaC,
+                  autofocus: true,
+                  textCapitalization: TextCapitalization.words,
                   obscureText: true,
-                  hintext: 'Ingrese su Teléfono',
-                  labelText: 'Confirmar Contraseña'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Este campo es requerido';
+                    }
+                    return null;
+                  },
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  decoration: InputDecoration(
+                    labelText: 'Confirmar Contraseña',
+                    hintText: 'Ingrese su Contraseña',
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.black,
+                      ),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 6,
               ),
@@ -128,26 +175,6 @@ class _ModalRegistrarUsuariosState extends State<RegistrarUsuarioVista> {
               SizedBox(
                 height: 9,
               ),
-              DropdownButtonFormField<bool>(
-                value: estado,
-                items: Est.map((String est) {
-                  return DropdownMenuItem<bool>(
-                    value: est == 'Activo',
-                    child: Text(est),
-                  );
-                }).toList(),
-                onChanged: (bool? newValue) {
-                  if (newValue != null) {
-                    setState(() {
-                      estado = newValue;
-                    });
-                  }
-                },
-                decoration: const InputDecoration(
-                  labelText: 'Estado',
-                  border: OutlineInputBorder(),
-                ),
-              ),
               SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () async {
@@ -166,7 +193,7 @@ class _ModalRegistrarUsuariosState extends State<RegistrarUsuarioVista> {
                       "correo": _correo.text,
                       "telefono": int.parse(_telefono.text),
                       "rol": dropdownValue,
-                      "estado": estado,
+                      "estado": true,
                       "fecha": DateFormat('yyyy-MM-dd HH:mm:ss')
                           .format(DateTime.now()),
                       "password": _contrasena.text,

@@ -32,10 +32,16 @@ class _CartasVigilantesState extends State<CartasVigilantes> {
         return Card(
           margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
             child: ListTile(
               leading: Icon(Icons.security),
-              title: Text('${vigilantes['nombre']} ${vigilantes['apellido']}'),
+              title: Text(
+                '${vigilantes['nombre']} ${vigilantes['apellido']}',
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               subtitle: Text(
                 'Tipo de documento: ${vigilantes['tipo_documento']}\n'
                 'Documento: ${vigilantes['documento']}\n'
@@ -76,7 +82,12 @@ class _CartasVigilantesState extends State<CartasVigilantes> {
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: const Text('Cancelar'),
+                                child: const Text(
+                                  'Cancelar',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 5, 0, 34),
+                                  ),
+                                ),
                               ),
                               TextButton(
                                 onPressed: () async {
@@ -95,7 +106,12 @@ class _CartasVigilantesState extends State<CartasVigilantes> {
                                   );
                                   widget.actualizarDatos();
                                 },
-                                child: const Text('Eliminar'),
+                                child: const Text(
+                                  'Eliminar',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 5, 0, 34),
+                                  ),
+                                ),
                               ),
                             ],
                           );
