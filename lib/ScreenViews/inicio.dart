@@ -1,3 +1,5 @@
+import 'package:apptower/ScreenViews/camara.dart';
+import 'package:apptower/ScreenViews/ubicacion.dart';
 import 'package:flutter/material.dart';
 import 'package:apptower/ScreenViews/login.dart';
 import 'package:apptower/ScreenViews/roles.dart';
@@ -61,7 +63,7 @@ class Inicio extends StatelessWidget {
               leading: Icon(Icons.person, color: Colors.black,),
               title: Text('Usuarios',
               style: TextStyle(
-            fontWeight: FontWeight.bold, // Establece la negrilla
+            fontWeight: FontWeight.bold, 
           ),),
               onTap: () {
                 Navigator.push(
@@ -96,6 +98,33 @@ class Inicio extends StatelessWidget {
                 );
               },
             ),
+            ListTile(
+              leading: Icon(Icons.camera_enhance, color: Colors.black,),
+              title: Text('Cámara',
+              style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Camera()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.add_location, color: Colors.black,),
+              title: Text('Ubicación',
+              style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  MapaUbicacionView()),
+                );
+              },
+            ),
+            
             Spacer(),
             Padding(
               padding: const EdgeInsets.all(8.0),
